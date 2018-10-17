@@ -1,5 +1,4 @@
-{% set version = '0.6-12' %}
-
+{% set version = '0.6-14' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,40 +9,49 @@ package:
 source:
   fn: klaR_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/klaR_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/klaR/klaR_{{ version }}.tar.gz
-  sha256: 7a8f9fcacc8a0a250811dcd627657bcd7b58c719d585fd5cdcaba9fcc3c2d382
+    - {{ cran_mirror }}/src/contrib/klaR_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/klaR/klaR_{{ version }}.tar.gz
+  sha256: 51e9d9149ba77874ccecc816a2a75619e2f9615c091f6e8969da20615c2b29bd
 
 build:
+  merge_build_host: True  # [win]
   number: 0
   skip: true  # [win32]
-
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
+    - {{posix}}zip               # [win]
+  host:
     - r-base
     - r-mass
     - r-combinat
-
+    - r-questionr
   run:
     - r-base
     - r-mass
     - r-combinat
+    - r-questionr
 
 test:
   commands:
-    - $R -e "library('klaR')"  # [not win]
+    - $R -e "library('klaR')"           # [not win]
     - "\"%R%\" -e \"library('klaR')\""  # [win]
 
 about:
   home: http://www.statistik.tu-dortmund.de
   license: GPL-2
-  summary: Miscellaneous functions for classification and visualization developed at the Fakultaet
-    Statistik, Technische Universitaet Dortmund
+  summary: Miscellaneous functions for classification and visualization, e.g. regularized discriminant
+    analysis, sknn() kernel-density naive Bayes,  an interface to 'svmlight' and stepclass()
+    wrapper variable selection  for supervised classification, partimat() visualization
+    of classification rules  and shardsplot() of cluster results as well as kmodes()
+    clustering for categorical data,  corclust() variable clustering, variable extraction
+    from different variable clustering models  and weight of evidence preprocessing.
   license_family: GPL2
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'  # [unix]
+  license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-2'  # [win]
 
 extra:
   recipe-maintainers:
@@ -51,3 +59,5 @@ extra:
     - bgruening
     - daler
     - jdblischak
+    - cbrueffer
+    - dbast
