@@ -1,4 +1,4 @@
-{% set version = '0.6-14' %}
+{% set version = "0.6-15" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -11,12 +11,12 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/klaR_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/klaR/klaR_{{ version }}.tar.gz
-  sha256: 51e9d9149ba77874ccecc816a2a75619e2f9615c091f6e8969da20615c2b29bd
+  sha256: 5bfe5bc643f8a64b222317732c26e9f93be297cdc318a869f15cc9ab0d9e0fae
 
 build:
   noarch: generic
   merge_build_host: True  # [win]
-  number: 1001
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
