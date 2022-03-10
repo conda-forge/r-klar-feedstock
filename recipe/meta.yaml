@@ -1,4 +1,4 @@
-{% set version = "0.6-15" %}
+{% set version = "1.7-0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -11,12 +11,12 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/klaR_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/klaR/klaR_{{ version }}.tar.gz
-  sha256: 5bfe5bc643f8a64b222317732c26e9f93be297cdc318a869f15cc9ab0d9e0fae
+  sha256: b4795250ef19fd1b5e1b9a59343fd01159a33dbdbb504a06258220e37a718198
 
 build:
   noarch: generic
-  merge_build_host: True  # [win]
-  number: 1
+  merge_build_host: true  # [win]
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -43,14 +43,10 @@ test:
 about:
   home: http://www.statistik.tu-dortmund.de
   license: GPL-2
-  summary: Miscellaneous functions for classification and visualization, e.g. regularized discriminant
-    analysis, sknn() kernel-density naive Bayes,  an interface to 'svmlight' and stepclass()
-    wrapper variable selection  for supervised classification, partimat() visualization
-    of classification rules  and shardsplot() of cluster results as well as kmodes()
-    clustering for categorical data,  corclust() variable clustering, variable extraction
-    from different variable clustering models  and weight of evidence preprocessing.
+  summary: Miscellaneous functions for classification and visualization, e.g. regularized discriminant analysis, sknn() kernel-density naive Bayes,  an interface to 'svmlight' and stepclass() wrapper variable selection  for supervised classification, partimat() visualization of classification rules  and shardsplot() of cluster
+    results as well as kmodes() clustering for categorical data,  corclust() variable clustering, variable extraction from different variable clustering models  and weight of evidence preprocessing.
   license_family: GPL2
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 
 extra:
   recipe-maintainers:
