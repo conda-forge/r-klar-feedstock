@@ -3,7 +3,7 @@ About r-klar
 
 Home: http://www.statistik.tu-dortmund.de
 
-Package license: GPL-2
+Package license: GPL-2.0-or-later
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-klar-feedstock/blob/master/LICENSE.txt)
 
