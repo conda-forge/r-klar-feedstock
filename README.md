@@ -1,11 +1,11 @@
-About r-klar
-============
+About r-klar-feedstock
+======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-klar-feedstock/blob/main/LICENSE.txt)
 
 Home: http://www.statistik.tu-dortmund.de
 
 Package license: GPL-2.0-or-later
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-klar-feedstock/blob/main/LICENSE.txt)
 
 Summary: Miscellaneous functions for classification and visualization, e.g. regularized discriminant analysis, sknn() kernel-density naive Bayes,  an interface to 'svmlight' and stepclass() wrapper variable selection  for supervised classification, partimat() visualization of classification rules  and shardsplot() of cluster results as well as kmodes() clustering for categorical data,  corclust() variable clustering, variable extraction from different variable clustering models  and weight of evidence preprocessing.
 
